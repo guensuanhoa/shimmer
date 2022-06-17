@@ -66,7 +66,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   Container(
                     margin: const EdgeInsets.only(bottom: 10),
-                    height: 10,
                     color: Colors.green,
                     child: Text(
                       'You have pushed the button this many times:',
@@ -74,7 +73,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     margin: const EdgeInsets.only(bottom: 10),
-                    height: 10,
                     color: Colors.green,
                     child: Text(
                       'You have pushed the button this many times:',
@@ -82,7 +80,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     margin: const EdgeInsets.only(bottom: 10),
-                    height: 10,
                     color: Colors.green,
                     child: Text(
                       'You have pushed the button this many times:',
@@ -91,7 +88,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
               isLoading: model.mainState == MainState.loading,
-              mainColor: Colors.red,
             );
           },
         ),

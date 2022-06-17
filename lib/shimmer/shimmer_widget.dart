@@ -33,12 +33,19 @@ class ShimmerWidget extends StatefulWidget {
 
 class _ShimmerWidgetState extends State<ShimmerWidget> with SingleTickerProviderStateMixin {
   late AnimationController _shimmerController;
+  late Animation _animation;
 
   @override
   void initState() {
     super.initState();
     _shimmerController = AnimationController.unbounded(vsync: this)
-      ..repeat(min: -0.5, max: 1.5, period: const Duration(milliseconds: 1000));
+      ..repeat(min: -1, max: 1, period: const Duration(milliseconds: 1000));
+    _animation = Tween(begin: 0.0, end: 1.0).animate(_shimmerController)
+      ..addListener(
+        () {
+          setState(() {});
+        },
+      );
   }
 
   @override
@@ -58,9 +65,9 @@ class _ShimmerWidgetState extends State<ShimmerWidget> with SingleTickerProvider
             widget.slideColor ?? Color(0xFFF4F4F4),
             mainColor,
           ],
-          begin: Alignment(-1.0, -2),
-          end: Alignment(1.0, 2),
-          transform: _SlidingGradientTransform(slidePercent: _shimmerController.value),
+          begin: Alignment(-1.0, -0.2),
+          end: Alignment(1.0, 0.2),
+          transform: _SlidingGradientTransform(slidePercent: _animation.value),
         ).createShader(bounds);
       },
       child: widget.child,
