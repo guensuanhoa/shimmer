@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 enum MainState { loading, idle }
 
 class MainVm extends ChangeNotifier {
-  MainState _mainState = MainState.idle;
+  MainState _mainState = MainState.loading;
 
   MainState get mainState => _mainState;
 
